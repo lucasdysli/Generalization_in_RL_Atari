@@ -1,0 +1,22 @@
+env_wrapper:
+  - stable_baselines3.common.atari_wrappers.NoopResetEnv
+  - stable_baselines3.common.atari_wrappers.EpisodicLifeEnv
+  - stable_baselines3.common.atari_wrappers.FireResetEnv
+  - stable_baselines3.common.atari_wrappers.ClipRewardEnv
+  - ocatari_wrappers.BinaryMaskWrapper
+  - ocatari_wrappers.ObjectTypeMaskPlanesWrapper
+frame_stack: 4
+policy: 'CnnPolicy'
+n_envs: 8
+n_steps: 128
+n_epochs: 4
+batch_size: 256
+n_timesteps: !!float 1e7
+learning_rate: lin_2.5e-4
+clip_range: lin_0.1
+vf_coef: 0.5
+ent_coef: 0.01
+n_eval_episodes: 5
+ocatari_obs_mode: dqn
+ocatari_mode: ram
+ocatari_buffer_size: 4
